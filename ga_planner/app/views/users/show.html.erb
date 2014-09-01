@@ -1,0 +1,14 @@
+
+<p>
+  <%= @user.name %><br>
+</p>
+<p>
+  <%= @user.role %><br>
+</p>
+<p>
+  <%= @user.email %><br>
+</p> 
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
