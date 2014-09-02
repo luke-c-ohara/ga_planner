@@ -1,11 +1,17 @@
-
 <p>
   <%= @course.name %><br>
 </p>
 <p>
   <%= @course.duration %><br>
 </p>
+<p>
+  <% @course.cohorts.each do |cohort| %>
+<%= cohort.name %>
+<% end %>
+
+<li><%= link_to 'Enroll on a course', new_enrollment_path %></li>
+
+<li><%= link_to 'Apply to teach on a course', new_contract_path %></li>
 
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', users_path %>
+

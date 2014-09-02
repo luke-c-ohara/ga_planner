@@ -4,5 +4,7 @@ GaPlanner::Application.routes.draw do
   resources :users
   resources :courses
   resources :classrooms
+  resources :enrollments
+  resources :contracts
 
 end

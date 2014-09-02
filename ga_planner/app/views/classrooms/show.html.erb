@@ -4,7 +4,15 @@
 <p>
   <%= @classroom.location %><br>
 </p>
-
+<p>
+  <% @classroom.bookings.each do |booking| %>
+  <%= booking.start_date %> 
+</p>
 
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', classrooms_path %>
+
+
+
+<% end %>
+

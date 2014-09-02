@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <p>
   <%= @user.name %><br>
 </p>
@@ -8,7 +7,24 @@
 <p>
   <%= @user.email %><br>
 </p> 
+<h2> Courses you are enrolled on</h2>
+<p>
+  <% @user.studyings.each do |studying| %>
+  <%= studying.name %>
+  <% end %>
 
+  <br>
+</p> 
+<h2> Courses you are teaching on</h2>
+<p>
+  <% @user.teachings.each do |teaching| %>
+<%= teaching.name %>
+<% end %>
+</p> 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+
+
+
