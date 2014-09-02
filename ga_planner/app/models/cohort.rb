@@ -7,5 +7,14 @@ class Cohort < ActiveRecord::Base
   has_many :classrooms, through: :bookings
 
   has_many :enrollments
-  has_many :users, through: :enrollments
+  has_many :students, through: :enrollments, source: :user
+
+  # has_many :enrollments
+  # has_many :users, through: :enrollments
+
+  has_many :contracts
+  has_many :instructors, through: :contracts, source: :user
+
 end
+
+

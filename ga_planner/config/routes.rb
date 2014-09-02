@@ -1,9 +1,8 @@
 GaPlanner::Application.routes.draw do
+  root to: 'welcome#index'
 
   resources :users
   resources :courses
   resources :classrooms
-
-  root to: 'welcome#index'
 
 end
