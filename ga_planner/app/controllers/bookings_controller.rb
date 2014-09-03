@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  load_and_authorize_resource
 
     def index
       @bookings = Booking.all
@@ -10,7 +11,7 @@ class BookingsController < ApplicationController
 
     def new
       @booking = Booking.new
-      @classroom    = Classroom.find(params[:classroom_id])
+      @classroom = Classroom.find(params[:classroom_id])
     end
 
     def create

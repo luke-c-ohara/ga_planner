@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-
+  load_and_authorize_resource
     def index
       @cohorts = Cohort.all
     end

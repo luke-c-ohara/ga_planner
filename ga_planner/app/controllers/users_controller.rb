@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    
+authorize_resource except: [:create]
     def index
       @users = User.all
     end
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     def edit
       @user = User.find(params[:id])
+      authorize! :edit, @user
     end
 
     def update
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
 
     def destroy
       @user = User.find(params[:id])
+      authorize! :destroy, @user
       @user.destroy
       redirect_to users_url, :notice => "Successfully destroyed user."
     end

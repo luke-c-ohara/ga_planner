@@ -3,3 +3,24 @@
 <p>
   <%= @cohort.start_date %><br>
 </p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Email</th>
+    <th>Password digest</th>
+    <th></th>
+  </tr>
+
+  <h3>Users</h3>
+  <% @cohort.students.each do |student| %>
+  <tr>
+    <td><%= student.name %></td>
+    <td><%= student.role %></td>
+    <td><%= student.email %></td>
+    <td><%= link_to 'Show', student %></td>
+  </tr>
+<% end %>
+</table>
+

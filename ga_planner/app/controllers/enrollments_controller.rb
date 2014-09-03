@@ -1,5 +1,5 @@
 class EnrollmentsController < ApplicationController
-
+ load_and_authorize_resource
     def index
       @enrollments = Enrollment.all
     end
@@ -10,14 +10,15 @@ class EnrollmentsController < ApplicationController
 
     def new
       @enrollment = Enrollment.new
-      @cohort     = Cohort.find(params[:cohort_id])
+      @cohort = Cohort.find(params[:cohort_id])
     end
 
     def create
       @cohort = Cohort.find(params[:cohort_id])
       @enrollment = @cohort.enrollments.new(params[:enrollment])
+      @enrollment.user = current_user
       if @enrollment.save
-        redirect_to @cohort, notice: "Logged in!"
+        redirect_to @cohort, notice: "Created enrollment!"
       else
         render :action => 'new'
       end
@@ -26,6 +27,7 @@ class EnrollmentsController < ApplicationController
 
     def edit
       @enrollment = Enrollment.find(params[:id])
+      authorize! :create, @enrollment
     end
 
     def update

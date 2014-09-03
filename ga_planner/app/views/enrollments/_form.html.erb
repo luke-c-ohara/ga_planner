@@ -1,9 +1,15 @@
 <%= form_for [@cohort, @enrollment] do |f| %>
+<% if @enrollment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@enrollment.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+    <% @enrollment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<p>
-  <%= f.label :user_id %><br>
-  <%= f.collection_select :user_id, User.all, :id, :name%>
-</p>
 <p>
   <%= f.label :start_date %><br>
   <%= f.text_field :start_date%>

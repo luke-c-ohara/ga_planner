@@ -31,7 +31,6 @@
           <ul class="title-area">
             <li class="name">
               <%= image_tag("general-assembly-logo.jpeg") %>
-              <h1><%= link_to "GA PLANNER", root_path %></h1>
             </li>
              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
             <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -52,7 +51,8 @@
               <li class="divider"></li>
               <li><%= link_to "Register", register_path %></li>
               <% else %>
-              <li><%= link_to "Logout", register_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Logout", logout_path %></li>
               <% end %>
             </ul>
 
@@ -61,6 +61,14 @@
       </div>
     </nav>
   </header>
+  <% flash.each do |name, msg| %>
+    <div class="flash-message flash-message-<%= name %>">
+      <%= msg %>
+    </div>
+  <% end %>
+  <% if current_user %>
+  <p>Logged in as <%= current_user.name %></p>
+  <% end %>
 
   <div class="row">
     <div class="large-12 columns">

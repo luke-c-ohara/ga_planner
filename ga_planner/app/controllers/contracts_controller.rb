@@ -1,5 +1,5 @@
 class ContractsController < ApplicationController
-
+  load_and_authorize_resource
     def index
       @contracts = Contract.all
     end
@@ -14,10 +14,11 @@ class ContractsController < ApplicationController
     end
 
     def create
-      @cohort = Contract.find(params[:cohort_id])
+      @cohort = Cohort.find(params[:cohort_id])
       @contract = @cohort.contracts.new(params[:contract])
+      @contract.user = current_user
       if @contract.save
-        redirect_to @contract, :notice => "Successfully created contract."
+        redirect_to @cohort, notice: "Successfully created contract."
       else
         render :action => 'new'
       end
