@@ -10,10 +10,12 @@ class ContractsController < ApplicationController
 
     def new
       @contract = Contract.new
+      @cohort     = Cohort.find(params[:cohort_id])
     end
 
     def create
-      @contract = Contract.new(params[:contract])
+      @cohort = Contract.find(params[:cohort_id])
+      @contract = @cohort.contracts.new(params[:contract])
       if @contract.save
         redirect_to @contract, :notice => "Successfully created contract."
       else

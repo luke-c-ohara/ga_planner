@@ -1,12 +1,17 @@
-<p>
-  <%= @user.name %><br>
-</p>
+<h2>
+ Hi <%= @user.name %>, good to see you.<br>
+</h2>
 <p>
   <%= @user.role %><br>
 </p>
 <p>
   <%= @user.email %><br>
 </p> 
+<p>
+  <b>Password digest:</b>
+  <%= @user.password_digest %>
+</p>
+
 <h2> Courses you are enrolled on</h2>
 <p>
   <% @user.studyings.each do |studying| %>
@@ -28,5 +33,9 @@
 <%= link_to 'Back', users_path %>
 
 <br><br>
+
+
+
+
 
 

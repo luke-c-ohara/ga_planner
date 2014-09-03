@@ -18,36 +18,56 @@
 
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-  <header>
-    <%= image_tag("general-assembly-logo.jpeg") %>
-    <h1>GA planner</h1>
 
-    <nav class="top-bar">
-      <ul class="title-area">
-       
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-          <li class="divider"></li>
-          <li><%= link_to "Users", users_path %></li>
-          <li class="divider"></li>
-          <li><%= link_to "Courses", courses_path %></li>
-          <li class="divider"></li>
-          <li><%= link_to "Classrooms", classrooms_path %></li>
-          <li class="divider"></li>
-        </ul>
-      </section>
-      <li class="name">
-        <h1><%= link_to "GENERAL ASSEMBLY", root_path %></h1>
-      </li>
+  <header>
+    <nav class="top-bar" data-topbar role="navigation">
+      <div class="row">
+        <div class="large-12 columns">
+          <ul class="title-area">
+            <li class="name">
+              <%= image_tag("general-assembly-logo.jpeg") %>
+              <h1><%= link_to "GA PLANNER", root_path %></h1>
+            </li>
+             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
+
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="divider"></li>
+              <li><%= link_to "Users", users_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Courses", courses_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Classrooms", classrooms_path %></li>
+              <li class="divider"></li>
+              <% if !current_user %>
+              <li><%= link_to "Login", login_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Register", register_path %></li>
+              <% else %>
+              <li><%= link_to "Logout", register_path %></li>
+              <% end %>
+            </ul>
+
+          </section>
+        </div>
+      </div>
     </nav>
   </header>
 
-    <%= yield %>
-
-  </body>
-  </html>
+  <div class="row">
+    <div class="large-12 columns">
+    <main>
+      <%= yield %>
+    </main>
+    </div>
+  </div>
+</body>
+</html>

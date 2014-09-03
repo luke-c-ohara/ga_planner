@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+.title-area img {
+  max-height: 45px;
+}
+
+table {
+  width: 100%;
+}

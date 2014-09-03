@@ -1,4 +1,9 @@
-<%= form_for @enrollment do |f| %>
+<%= form_for [@cohort, @enrollment] do |f| %>
+
+<p>
+  <%= f.label :user_id %><br>
+  <%= f.collection_select :user_id, User.all, :id, :name%>
+</p>
 <p>
   <%= f.label :start_date %><br>
   <%= f.text_field :start_date%>
@@ -7,14 +12,7 @@
   <%= f.label :pre_work %><br>
   <%= f.text_area :pre_work%>
 </p>
-<p>
-  <%= f.label :user_id %><br>
-  <%= f.collection_select :user_id, User.all, :id, :name%>
-</p>
-<p>
-  <%= f.label :cohort_id %><br>
-  <%= f.collection_select :cohort_id, Cohort.all, :id, :name%>
-</p>
+
 <p>
   <%= f.submit %>
 </p>

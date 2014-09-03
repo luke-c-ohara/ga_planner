@@ -1,7 +1,7 @@
 <h3>Listing classroom</h3>
 
 <h2>Which location are you looking for?</h2>
-<% @classrooms.select do |classroom| %>
+<% @classrooms.each do |classroom| %>
 
 <%= link_to classroom.location, classroom %>
 

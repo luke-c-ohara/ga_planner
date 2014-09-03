@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140902063801) do
+ActiveRecord::Schema.define(:version => 20140903083058) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(:version => 20140902063801) do
 
   create_table "cohorts", :force => true do |t|
     t.string   "name"
-    t.string   "start_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.date     "start_date", :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "course_id"
   end
 

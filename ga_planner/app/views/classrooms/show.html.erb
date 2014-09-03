@@ -2,21 +2,17 @@
  Location: <%= @classroom.location %><br>
 </p>
 <p>
-Room name: <%= @classroom.name %><br>
+  Room name: <%= @classroom.name %><br>
 </p>
-<p>
-  Current bookings: <% @classroom.bookings.each do |booking| %>
-  <%= booking.start_date %> 
-</p>
+
+<% @classroom.bookings.each do |booking| %>
+<%= booking %>
+
+<%= link_to 'Book this classroom', new_classroom_booking_path(booking) %>
+<br>
 <% end %>
-<br><br>
 
-<%= link_to 'Edit', edit_classroom_path(@classroom) %> |
 <%= link_to 'Back', classrooms_path %>
-
-
-
-
 
 
 

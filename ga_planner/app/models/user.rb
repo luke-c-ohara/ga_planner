@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
- attr_accessible :name, :role, :email, :password_digest
+has_secure_password
+ attr_accessible :name, :role, :email, :password, :password_confirmation
 
+ #:password_digest
  # :password, :password_confirmation
 
  has_many :enrollments
@@ -9,7 +11,7 @@ class User < ActiveRecord::Base
  has_many :contracts
  has_many :teachings, through: :contracts, source: :cohort
 
- # validates :email, presence: true
+ # validates :email, presence: true, on: :create
  # validates :email, uniqueness: { case_sensitive: false }
  # validates :password, presence: true, on: :create
 

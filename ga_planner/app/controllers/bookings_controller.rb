@@ -10,12 +10,14 @@ class BookingsController < ApplicationController
 
     def new
       @booking = Booking.new
+      @classroom    = Classroom.find(params[:classroom_id])
     end
 
     def create
-      @booking = Booking.new(params[:booking])
+      @classroom = Classroom.find(params[:classroom])
+      @booking = @classroom.bookings.new(params[:classroom])
       if @booking.save
-        redirect_to @booking, :notice => "Successfully created booking."
+        redirect_to @classroom, :notice => "Successfully created booking."
       else
         render :action => 'new'
       end

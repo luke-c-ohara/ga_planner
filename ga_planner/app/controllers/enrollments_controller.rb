@@ -10,16 +10,19 @@ class EnrollmentsController < ApplicationController
 
     def new
       @enrollment = Enrollment.new
+      @cohort     = Cohort.find(params[:cohort_id])
     end
 
     def create
-      @enrollment = Enrollment.new(params[:enrollment])
+      @cohort = Cohort.find(params[:cohort_id])
+      @enrollment = @cohort.enrollments.new(params[:enrollment])
       if @enrollment.save
-        redirect_to @enrollment, :notice => "Successfully created enrollment."
+        redirect_to @cohort, notice: "Logged in!"
       else
         render :action => 'new'
       end
     end
+
 
     def edit
       @enrollment = Enrollment.find(params[:id])

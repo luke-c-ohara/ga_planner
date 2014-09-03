@@ -5,13 +5,12 @@
  Course duration: <%= @course.duration %> months<br>
 </p>
 <p>
- Current cohorts: <% @course.cohorts.each do |cohort| %>
-<%= cohort.name %>
-<% end %>
-
-<li><%= link_to 'Enroll on a course', new_enrollment_path %></li>
-
-<li><%= link_to 'Apply to teach on a course', new_contract_path %></li>
-
-<b><b>
+  Current cohorts: 
+  <% @course.cohorts.each do |cohort| %>
+    <%= link_to cohort.name, cohort %>
+    <%= link_to 'Enroll on this course', new_cohort_enrollment_path(cohort) %>
+    <%= link_to 'Apply to teach on this course', new_cohort_contract_path(cohort) %>
+    <br>
+  <% end %>
+</p>
 

@@ -1,4 +1,4 @@
-<%= form_for @booking do |f| %>
+<%= form_for [@classroom, @booking] do |f| %>
 <p>
   <%= f.label :start_date %><br>
   <%= f.text_field :start_date%>
@@ -8,14 +8,9 @@
   <%= f.text_area :end_date%>
 </p>
 <p>
-  <%= f.label :classroom_id %><br>
-  <%= f.collection_select :classroom_id, Classroom.all, :id, :name%>
-</p>
-<p>
   <%= f.label :cohort_id %><br>
   <%= f.collection_select :cohort_id, Cohort.all, :id, :name%>
 </p>
-<p>
   <%= f.submit %>
 </p>
 <% end %>

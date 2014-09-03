@@ -5,7 +5,7 @@
 </p>
 <p>
   <%= f.label :start_date %><br>
-  <%= f.text_area :start_date%>
+  <%= f.date_select :start_date%>
 </p>
 <p>
   <%= f.label :course_id %><br>
@@ -15,3 +15,6 @@
   <%= f.submit %>
 </p>
 <% end %>
+
+
+date_select :cohort, :start_date %>
