@@ -1,26 +1,15 @@
-<h3>Listing course</h3>
+<h3>All courses</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Duration</th>
-    <th>Course type</th>
-    <th></th>
-  </tr>
-
-<h3>Courses</h3>
+<h2>What are course are you thinking of doing?</h2>
 <% @courses.each do |course| %>
-  <tr>
-    <td><%= course.name %></td>
-    <td><%= course.duration %></td>
-    <td><%= course.course_type %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<%= link_to course.name, course %>
+
 <% end %>
-</table>
 
-<br />
+<h2> ***TEACHERS ONLY**** </h2>
+<h2> Would you like to create a new cohort?</h2>
 
-<%= link_to 'New Course', new_course_path %>
+<li><%= link_to "New cohort", cohorts_path %></li>
+
+
+

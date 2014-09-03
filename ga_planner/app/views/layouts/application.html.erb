@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  <title>GaPlanner</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <meta charset="utf-8" />
+
+  <!-- Uncomment to make IE8 render like IE7 -->
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title><%= content_for?(:title) ? yield(:title) : "GENERAL ASSEMBLY PLANNER" %></title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <header>
+    <%= image_tag("general-assembly-logo.jpeg") %>
+    <h1>GA planner</h1>
 
-  <section>
-    <ul>
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Add a new user", new_user_path %></li>
-      <li><%= link_to "Courses", courses_path %></li>
-      <li><%= link_to "Add a new course", new_course_path %></li>
-      <li><%= link_to "Classrooms", classrooms_path %></li>
-      <li><%= link_to 'Add a new classroom', new_classroom_path %></li>
-    </ul>
-  </section>
+    <nav class="top-bar">
+      <ul class="title-area">
+       
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="divider"></li>
+          <li><%= link_to "Users", users_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Courses", courses_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Classrooms", classrooms_path %></li>
+          <li class="divider"></li>
+        </ul>
+      </section>
+      <li class="name">
+        <h1><%= link_to "GENERAL ASSEMBLY", root_path %></h1>
+      </li>
+    </nav>
+  </header>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
-</html>
+  </body>
+  </html>

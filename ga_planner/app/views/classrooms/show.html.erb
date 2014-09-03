@@ -1,18 +1,24 @@
 <p>
-  <%= @classroom.name %><br>
+ Location: <%= @classroom.location %><br>
 </p>
 <p>
-  <%= @classroom.location %><br>
+Room name: <%= @classroom.name %><br>
 </p>
 <p>
-  <% @classroom.bookings.each do |booking| %>
+  Current bookings: <% @classroom.bookings.each do |booking| %>
   <%= booking.start_date %> 
 </p>
+<% end %>
+<br><br>
 
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
 <%= link_to 'Back', classrooms_path %>
 
 
 
-<% end %>
+
+
+
+
+
 

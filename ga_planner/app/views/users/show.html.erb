@@ -11,6 +11,7 @@
 <p>
   <% @user.studyings.each do |studying| %>
   <%= studying.name %>
+  <%= studying.start_date %>
   <% end %>
 
   <br>
@@ -19,12 +20,13 @@
 <p>
   <% @user.teachings.each do |teaching| %>
 <%= teaching.name %>
+<%= teaching.start_date %>
 <% end %>
 </p> 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
-
+<br><br>
 
 

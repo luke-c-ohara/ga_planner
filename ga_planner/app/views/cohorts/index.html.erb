@@ -1,0 +1,26 @@
+<h3>Current cohorts</h3>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start date</th>
+    <th>Course_id</th>
+    <th></th>
+  </tr>
+
+<h3>Cohorts</h3>
+<% @cohorts.each do |cohort| %>
+  <tr>
+    <td><%= cohort.name %></td>
+    <td><%= cohort.start_date %></td>
+    <td><%= cohort.course_id %></td>
+    <td><%= link_to 'Show', cohort %></td>
+    <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
+    <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Cohort', new_cohort_path %>

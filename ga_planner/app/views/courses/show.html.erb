@@ -1,11 +1,11 @@
 <p>
-  <%= @course.name %><br>
+ Course name: <%= @course.name %><br>
 </p>
 <p>
-  <%= @course.duration %><br>
+ Course duration: <%= @course.duration %> months<br>
 </p>
 <p>
-  <% @course.cohorts.each do |cohort| %>
+ Current cohorts: <% @course.cohorts.each do |cohort| %>
 <%= cohort.name %>
 <% end %>
 
@@ -13,5 +13,5 @@
 
 <li><%= link_to 'Apply to teach on a course', new_contract_path %></li>
 
-
+<b><b>
 
