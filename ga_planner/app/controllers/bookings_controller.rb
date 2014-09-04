@@ -15,8 +15,8 @@ class BookingsController < ApplicationController
     end
 
     def create
-      @classroom = Classroom.find(params[:classroom])
-      @booking = @classroom.bookings.new(params[:classroom])
+      @classroom = Classroom.find(params[:classroom_id])
+      @booking = @classroom.bookings.new(params[:booking])
       if @booking.save
         redirect_to @classroom, :notice => "Successfully created booking."
       else

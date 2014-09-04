@@ -8,7 +8,7 @@
         elsif user.role? :member
          can :read, :all
          can :create, :all
-        can :manage, User, id: user.id
+         can :manage, User, id: user.id
          # can :manage, Course, user_id: user.id
          # can :manage, Contract, user_id: user.id
 
@@ -16,8 +16,8 @@
          can :read, Course
          can :create, User
        end
-      end
-    end
+     end
+   end
 
 
 

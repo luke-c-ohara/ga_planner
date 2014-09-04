@@ -1,9 +1,18 @@
-<h3>Listing classroom</h3>
+<h3>Listing Classrooms</h3>
 
-<h2>Which location are you looking for?</h2>
-<% @classrooms.each do |classroom| %>
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Name</th>
+  </tr>
 
-<%= link_to classroom.location, classroom %>
-
+<h3>Classrooms</h3>
+<% @classrooms.each do |room| %>
+  <tr>
+    <td><%= room.location %></td>
+    <td><%= room.name %></td>
+    <td><%= link_to 'Show', room %></td>
+    <td><%= link_to 'book', new_classroom_booking_path(room) %></td>
+  </tr>
 <% end %>
-
+</table>

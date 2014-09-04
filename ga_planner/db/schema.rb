@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140903083058) do
+ActiveRecord::Schema.define(:version => 20140903213651) do
 
   create_table "abilities", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(:version => 20140903083058) do
   end
 
   create_table "bookings", :force => true do |t|
-    t.string   "start_date"
-    t.string   "end_date"
+    t.date     "start_date",   :limit => 255
+    t.date     "end_date",     :limit => 255
     t.string   "time"
     t.string   "classroom_id"
     t.string   "cohort_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "classrooms", :force => true do |t|
