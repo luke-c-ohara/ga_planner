@@ -24,3 +24,7 @@
 <% end %>
 </table>
 
+<% if can? :manage, User %>
+ <%= link_to 'create new cohort', new_cohort_path, class: 'button'  %></td>
+ <br>
+<% end %>

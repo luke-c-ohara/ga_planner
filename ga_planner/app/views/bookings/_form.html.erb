@@ -1,28 +1,53 @@
 <%= form_for [@classroom, @booking] do |f| %>
 <% if @booking.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-    <ul>
+<div id="error_explanation">
+  <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+  <ul>
     <% @booking.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <li><%= msg %></li>
     <% end %>
-    </ul>
-  </div>
+  </ul>
+</div>
 <% end %>
 
-<p>
-  <%= f.label :start_date %><br>
-  <%= f.date_select :start_date%>
-</p>
-<p>
-  <%= f.label :end_date %><br>
- <%= f.date_select :end_date%>
-</p>
-<p>
-  <%= f.label :cohort_id %><br>
-  <%= f.collection_select :cohort_id, Cohort.all, :id, :name%>
-</p>
-  <%= f.submit %>
-</p>
-<% end %>
+<div class="row">
+  <div class="large-4 columns">
+   <%= f.label :start_date %>
+   <%= f.date_select(:start_date, options = { order: [:day, :month, :year], start_year: 2014, end_year: 2016 }, html_options = { size: 1 }) %>
+   <%= f.label :end_date %><br>
+   <%= f.date_select(:end_date, options = { order: [:day, :month, :year], start_year: 2014, end_year: 2016 }, html_options = { size: 1 }) %>
+   <%= f.label :cohort_id %><br>
+   <%= f.collection_select :cohort_id, Cohort.all, :id, :name%>
+   <br>
+   <%= f.submit class: 'button'%>
+ </label>
+ </div>
+
+<div class="row">
+    <div class="large-4 columns">
+      <table>
+        <tr>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Cohort</th>
+        </tr>
+        <h3>Bookings</h3>
+        <% @classroom.bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td><%= booking.cohort.try :name %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
+  <br><br>
+  <br><br>
+
+  <% end %>
+
+
 

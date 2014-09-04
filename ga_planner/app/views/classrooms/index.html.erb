@@ -16,3 +16,8 @@
   </tr>
 <% end %>
 </table>
+
+<% if can? :manage, User %>
+ <%= link_to 'create new classroom', new_course_path, class: 'button'  %></td>
+ <br>
+<% end %>

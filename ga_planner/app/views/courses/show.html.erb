@@ -1,16 +1,21 @@
-<p>
- Course name: <%= @course.name %><br>
-</p>
-<p>
- Course duration: <%= @course.duration %> months<br>
-</p>
-<p>
-  Current cohorts: 
-  <% @course.cohorts.each do |cohort| %>
-    <%= link_to cohort.name, cohort %>
-    <%= link_to 'Enroll on this course', new_cohort_enrollment_path(cohort) %>
-    <%= link_to 'Apply to teach on this course', new_cohort_contract_path(cohort) %>
-    <br>
-  <% end %>
-</p>
+<div class="row">
+  <div class="large-6 columns">
+    <div class= "title">
+      <%= @course.name %>
+    </div>
+    <p>Course duration: <%= @course.duration %> months <p>
+    <p>Current cohorts: 
+    <% @course.cohorts.each do |cohort| %>
+    <%= link_to cohort.name, cohort %></p>
 
+  </div>
+    <%= link_to 'Enroll on this course', new_cohort_enrollment_path(cohort), class: 'button' %>
+    <%= link_to 'Apply to teach on this course', new_cohort_contract_path(cohort), class: 'button' %>
+    <% end %>
+  </div>
+
+
+
+
+
+  

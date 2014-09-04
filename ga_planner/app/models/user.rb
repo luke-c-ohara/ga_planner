@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, presence: true, on: :create
 
-  before_save :default_role
+  before_create :default_role
 
   def role?(role_to_compare)
    self.role.to_s == role_to_compare.to_s

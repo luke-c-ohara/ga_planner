@@ -1,0 +1,63 @@
+.title-area img {
+  max-height: 45px;
+}
+
+table {
+  width: 100%;
+}
+
+body {
+  background: pink;
+}
+
+.course {
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+.right {
+  position: right;
+}
+
+.title {
+  font-size: 150px;
+}
+
+.login {
+  margin-top: 150px;
+  margin-right: 150px;
+  height: 500px;
+  width: 500px;
+}
+
+.button {
+  background-color: red;
+
+  }
+
+.top-bar {
+  height: 50px;
+  margin-top: 0px;
+
+}
+
+footer {
+   position: fixed; bottom: 0 ;
+   z-index:-1;
+}
+
+.stickyFooter {
+     position: fixed;
+     bottom: 0px;
+     width: 100%;
+     overflow: visible;
+     z-index: 99;
+     padding-top: 5px;
+     padding-bottom: 3px;
+     color: white;
+     background-color: black;
+     height: 35px;
+}
+
+

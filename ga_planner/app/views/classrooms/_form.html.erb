@@ -1,9 +1,9 @@
 <%= form_for @classroom do |f| %>
-<% if @user.errors.any? %>
+<% if @classroom.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <h2><%= pluralize(@classroom.errors.count, "error") %> prohibited this classroom from being saved:</h2>
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% @classroom.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -19,6 +19,6 @@
     </p>
    
     <p>
-      <%= f.submit %>
+      <%= f.submit class: 'button'%>
     </p>
   <% end %>

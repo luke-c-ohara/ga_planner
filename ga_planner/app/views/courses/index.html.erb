@@ -1,15 +1,19 @@
 <h3>All courses</h3>
 
-<h2>What are course are you thinking of doing?</h2>
+<h2>What are course are you interested in?</h2>
 <% @courses.each do |course| %>
-<%= link_to course.name, course %>
 
+<div class= "course">
+  <%= link_to course.name, course %>
+</div>
 <% end %>
 
-<h2> ***TEACHERS ONLY**** </h2>
-<h2> Would you like to create a new cohort?</h2>
+<% if can? :manage, User %>
+<br>
+ <%= link_to 'create new course', new_course_path, class: 'button'  %></td>
+ <br>
+ <%= link_to 'create new cohort', new_cohort_path, class: 'button'  %></td>
+<% end %>
 
-<li><%= link_to "New cohort", cohorts_path %></li>
-
-
-
+<br><br>
+<br><br>

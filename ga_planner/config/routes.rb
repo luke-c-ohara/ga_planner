@@ -3,24 +3,21 @@ GaPlanner::Application.routes.draw do
 
   get "users/new", as: 'register'
   get "sessions/new", as: 'login'
+  get "admin", to: 'admins#index'
   get "sessions/destroy"
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-# get '/enrollments/new/:cohort_id', to: 'enrollments#new', as: 'enroll'
-# get '/contracts/new/:cohort_id', to: 'contracts#new', as: 'instruct'
 
-  resources :users
-  resources :courses
+resources :users
+resources :courses
+resources :classrooms do
+  resources :bookings 
+end
+resources :cohorts do 
+  resources :enrollments
+  resources :contracts 
+end
 
-  resources :classrooms do
-    resources :bookings 
-  end
-  
-  resources :cohorts do 
-    resources :enrollments
-    resources :contracts 
-  end
-  
-  resources :sessions
+resources :sessions
 
 end

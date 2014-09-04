@@ -1,36 +1,25 @@
-<h2>
- Hi <%= @user.name %>, good to see you.<br>
-</h2>
-<p>
-  <%= @user.role %><br>
-</p>
+<div class= "title">
+  <%= @user.name %><br>
+</div>
 <p>
   <%= @user.email %><br>
 </p> 
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
-
 <h2> Courses you are enrolled on</h2>
 <p>
   <% @user.studyings.each do |studying| %>
-  <%= studying.name %>
-  <%= studying.start_date %>
+  <%= link_to studying.name, studying %>
   <% end %>
-
-  <br>
 </p> 
+<br>
 <h2> Courses you are teaching on</h2>
 <p>
   <% @user.teachings.each do |teaching| %>
-<%= teaching.name %>
-<%= teaching.start_date %>
-<% end %>
+  <%= link_to teaching.name, teaching %>
+  <% end %>
 </p> 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user), class: 'button'  %> 
+<%= link_to 'Back', users_path, class: 'button'  %>
 
 <br><br>
 

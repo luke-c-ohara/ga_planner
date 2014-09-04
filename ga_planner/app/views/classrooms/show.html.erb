@@ -1,26 +1,18 @@
 <p>
  Location: <%= @classroom.location %><br>
 </p>
-
 <p>
   Room name: <%= @classroom.name %><br>
 </p>
-
 All bookings: <% @classroom.bookings.each do |booking| %>
 <br>
 Start date: <%= booking.start_date %>
 <br>
 End date: <%= booking.end_date %>
-
 <%= booking.cohort.try :name %>
+<% end %>
 
-  <% end %>
-
-
-
-
-
-<%= link_to 'Back', classrooms_path %>
+<%= link_to 'Back', classrooms_path, class: 'button'  %>
 
 <br>
 

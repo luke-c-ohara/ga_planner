@@ -10,18 +10,6 @@
   </div>
 <% end %>
 
-<%= month_calendar do |date| %>
-  <%= date %>
-<% end %>
-
-<%= week_calendar number_of_weeks: 2 do |date| %>
-  <%= date %>
-<% end %>
-
-<%= calendar number_of_days: 4 do |date| %>
-  <%= date %>
-<% end %>
-
 <p>
   <%= f.label :start_date %><br>
   <%= f.text_field :start_date%>
@@ -32,7 +20,7 @@
 </p>
 
 <p>
-  <%= f.submit %>
+  <%= f.submit class: 'button'%>
 </p>
 <% end %>
 

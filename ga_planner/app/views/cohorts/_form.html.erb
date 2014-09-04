@@ -1,13 +1,13 @@
 <%= form_for @cohort do |f| %>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<% if @cohort.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@cohort.errors.count, "error") %> prohibited this cohort from being saved:</h2>
+  <ul>
+    <% @cohort.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
     <% end %>
-    </ul>
-  </div>
+  </ul>
+</div>
 <% end %>
 <p>
   <%= f.label :name %><br>
@@ -26,5 +26,3 @@
 </p>
 <% end %>
 
-
-date_select :cohort, :start_date %>
