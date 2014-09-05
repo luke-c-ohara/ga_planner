@@ -8,6 +8,7 @@ table {
 
 body {
   background: pink;
+  min-height: 600px;
 }
 
 .course {
@@ -21,7 +22,7 @@ body {
 }
 
 .title {
-  font-size: 150px;
+  font-size: 100px;
 }
 
 .login {

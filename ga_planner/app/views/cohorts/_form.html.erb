@@ -15,8 +15,8 @@
 </p>
 <p>
   <%= f.label :start_date %><br>
-  <%= f.date_select :start_date%>
-</p>
+<%= f.date_select(:start_date, options = { order: [:day, :month, :year], start_year: 2014, end_year: 2016 }, html_options = { size: 1 }) %>
+<%= f.label :end_date %>
 <p>
   <%= f.label :course_id %><br>
   <%= f.collection_select :course_id, Course.all, :id, :name%>

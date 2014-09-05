@@ -11,13 +11,12 @@
   <tr>
     <td><%= room.location %></td>
     <td><%= room.name %></td>
-    <td><%= link_to 'Show', room %></td>
     <td><%= link_to 'book', new_classroom_booking_path(room) %></td>
   </tr>
 <% end %>
 </table>
 
 <% if can? :manage, User %>
- <%= link_to 'create new classroom', new_course_path, class: 'button'  %></td>
+ <%= link_to 'create new classroom', new_classroom_path, class: 'button'  %></td>
  <br>
 <% end %>

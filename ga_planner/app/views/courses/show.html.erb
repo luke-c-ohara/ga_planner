@@ -7,11 +7,8 @@
     <p>Current cohorts: 
     <% @course.cohorts.each do |cohort| %>
     <%= link_to cohort.name, cohort %></p>
-
-  </div>
-    <%= link_to 'Enroll on this course', new_cohort_enrollment_path(cohort), class: 'button' %>
-    <%= link_to 'Apply to teach on this course', new_cohort_contract_path(cohort), class: 'button' %>
     <% end %>
+  </div>
   </div>
 
 

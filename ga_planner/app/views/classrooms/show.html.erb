@@ -16,7 +16,21 @@ End date: <%= booking.end_date %>
 
 <br>
 
+<h3>Listing Classrooms</h3>
 
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Name</th>
+  </tr>
 
-
+<h3>Classrooms</h3>
+<% @classroom.each do |room| %>
+  <tr>
+    <td><%= room.location %></td>
+    <td><%= room.name %></td>
+    <td><%= link_to 'book', new_classroom_booking_path(room) %></td>
+  </tr>
+<% end %>
+</table>
 

@@ -10,8 +10,8 @@
     <% end %>
   </tr>
 
-  <h3>Users</h3>
-  <% @users.each do |user| %>
+<h3>Users</h3>
+<% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
@@ -23,10 +23,10 @@
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-  <% end %>
+<% end %>
 </table>
 
 <% if can? :manage, User %>
-<%= link_to 'create new user', new_user_path, class: 'button' %></td>
+ <%= link_to 'create new user', new_user_path, class: 'button' %></td>
 <% end %>
 

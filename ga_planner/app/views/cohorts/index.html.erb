@@ -1,5 +1,4 @@
 <h3>Current cohorts</h3>
-
 <table>
   <tr>
     <th>Name</th>
@@ -13,15 +12,13 @@
   <tr>
     <td><%= cohort.name %></td>
     <td><%= cohort.start_date %></td>
-    <td><%= cohort.course_id %></td>
-    <td><%= cohort.students %></td>
+    <td><%= cohort.course.name %></td>
     <td><%= link_to 'Show', cohort %></td>
-    <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-    <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br/>
-
+<% if can? :manage, User %>
 <%= link_to 'New Cohort', new_cohort_path, class: 'button'  %>
+<% end %>
