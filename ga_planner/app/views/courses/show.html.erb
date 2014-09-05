@@ -4,8 +4,9 @@
       <%= @course.name %>
     </div>
     <p>Course duration: <%= @course.duration %> months <p>
-    <p>Current cohorts: 
-    <% @course.cohorts.each do |cohort| %>
+    <p>Current cohorts:<p>
+
+   <p> <% @course.cohorts.each do |cohort| %>
     <%= link_to cohort.name, cohort %></p>
     <% end %>
   </div>
