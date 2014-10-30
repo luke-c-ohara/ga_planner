@@ -16,12 +16,12 @@ class User < ActiveRecord::Base
 
   def role?(role_to_compare)
    self.role.to_s == role_to_compare.to_s
- end
+  end
 
- private
- def default_role
+  private
+  def default_role
    self.role ||= :member
- end
+  end
 
 end
 
