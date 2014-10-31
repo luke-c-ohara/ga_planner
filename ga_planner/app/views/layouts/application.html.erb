@@ -1,21 +1,10 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+ <html lang="en"> 
 <head>
   <meta charset="utf-8" />
-
-  <!-- Uncomment to make IE8 render like IE7 -->
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
-
-  <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title><%= content_for?(:title) ? yield(:title) : "GENERAL ASSEMBLY PLANNER" %></title>
-
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "vendor/custom.modernizr" %>
   <%= javascript_include_tag "application" %>
@@ -30,19 +19,18 @@
             <li class="name">
               <%= image_tag("general-assembly_400.jpg") %>
             </li>
-             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a>
+            </li>
           </ul>
 
           <section class="top-bar-section">
             <ul class="left">
-              <li><%= link_to "GENERAL ASSEMBLY PLANNER" %></li>
+              <li><%= link_to "GENERAL ASSEMBLY PLANNER", root_path %></li>
             </ul>
 
-            <!-- Right Nav Section -->
             <ul class="right">
               <% if can? :manage, User %>
-            <li><%= link_to "Admin", admin_path %></li>
+                <li><%= link_to "Admin", admin_path %></li>
               <% end %>
               <li class="divider"></li>
               <li><%= link_to "Users", users_path %></li>
@@ -52,15 +40,14 @@
               <li><%= link_to "Classrooms", classrooms_path %></li>
               <li class="divider"></li>
               <% if !current_user %>
-              <li><%= link_to "Login", login_path %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Register", register_path %></li>
+                <li><%= link_to "Login", login_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Register", register_path %></li>
               <% else %>
-              <li class="divider"></li>
-              <li><%= link_to "Logout", logout_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Logout", logout_path %></li>
               <% end %>
             </ul>
-
           </section>
         </div>
       </div>
@@ -73,24 +60,20 @@
     </div>
   <% end %>
   <% if current_user %>
-  <p>Logged in as <%= current_user.name %></p>
+    <p>Logged in as <%= current_user.name %></p>
   <% end %>
 
   <div class="row">
     <div class="large-10 columns">
-  <%= yield %>
+      <%= yield %>
     </div>
   </div>
   <footer>
     <%= image_tag("london-skyline.svg") %>
-    
-      <div class="row">
-        <div class="large-12 columns">
-        </div>
-      </div>
-         <div class="stickyFooter">
-            <p><b>Ekul Arah'o LTD<b></p>
-         </div>
+     
+    <div class="stickyFooter">
+      <p><b>Ekul Arah'o LTD</b></p>
+     </div>
   
   </footer>
 </body>
