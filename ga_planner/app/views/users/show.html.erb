@@ -1,27 +1,23 @@
-<div class= "title">
-  <%= @user.name %><br>
-</div>
-<p>
-  <%= @user.email %><br>
-</p> 
+
+<h1 class= "title"><%= @user.name %></h1>
+
+<p><%= @user.email %></p> 
 <h2> Courses you are enrolled on</h2>
-<p>
+<ul>
   <% @user.studyings.each do |studying| %>
-  <%= link_to studying.name, studying %>
+    <li><%= link_to studying.name, studying %></li>
   <% end %>
-</p> 
-<br>
+</ul> 
 <h2> Courses you are teaching on</h2>
-<p>
+<ul>
   <% @user.teachings.each do |teaching| %>
-  <%= link_to teaching.name, teaching %>
+    <li><%= link_to teaching.name, teaching %></li>
   <% end %>
-</p> 
+</ul>
 
 <%= link_to 'Edit', edit_user_path(@user), class: 'button'  %> 
 <%= link_to 'Back', users_path, class: 'button'  %>
 
-<br><br>
 
 
 

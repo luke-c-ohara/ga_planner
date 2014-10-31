@@ -11,8 +11,6 @@ class Ability
         cannot :read, :admin
         can :create, :all
         can :edit, User, id: user.id
-      # can :manage, Course, user_id: user.id
-      # can :manage, Contract, user_id: user.id
       else
         can :read, Course
         can :create, User
