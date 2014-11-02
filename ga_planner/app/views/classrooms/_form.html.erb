@@ -9,19 +9,18 @@
     </ul>
   </div>
 <% end %>
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :location %><br>
-      <%= f.text_area :location %>
-    </p>
-   
-    <p>
-      <%= f.submit class: 'button'%>
-    </p>
-  <% end %>
+  <div class= "field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class= "field">
+    <%= f.label :location %><br>
+    <%= f.text_area :location %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'button'%>
+  </div>
+<% end %>
 
 
   

@@ -1,4 +1,4 @@
-<h3>Current cohorts</h3>
+<h1>Current cohorts</h1>
 <table>
   <tr>
     <th>Name</th>
@@ -7,18 +7,17 @@
     <th></th>
   </tr>
 
-<h3>Cohorts</h3>
-<% @cohorts.each do |cohort| %>
+  <h2>Cohorts</h2>
+  <% @cohorts.each do |cohort| %>
   <tr>
     <td><%= cohort.name %></td>
     <td><%= cohort.start_date %></td>
     <td><%= cohort.course.name %></td>
     <td><%= link_to 'Show', cohort %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
 
-<br/>
 <% if can? :manage, User %>
 <%= link_to 'New Cohort', new_cohort_path, class: 'button'  %>
 <% end %>

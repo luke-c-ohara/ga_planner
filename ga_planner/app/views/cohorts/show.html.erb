@@ -1,7 +1,7 @@
 <h1> <%= @cohort.name %> </h1>
 
 <p>
- Course start date: <%= @cohort.start_date %><br>
+ Course start date: <%= @cohort.start_date %>s
 </p>
 
 <table>
@@ -12,7 +12,7 @@
     <th></th>
   </tr>
 
-  <h3>Users</h3>
+  <h2>Users</h2>
   <% @cohort.students.each do |student| %>
   <tr>
     <td><%= student.name %></td>
@@ -20,13 +20,11 @@
     <td><%= student.email %></td>
     <td><%= link_to 'Show', student %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
 <%= link_to 'Enroll on this course', new_cohort_enrollment_path(@cohort), class: 'button' %>
 <%= link_to 'Apply to teach on this course', new_cohort_contract_path(@cohort), class: 'button' %>
 
-
 <% if can? :manage, User %>
  <%= link_to 'create new cohort', new_cohort_path, class: 'button'  %></td>
- <br>
 <% end %>

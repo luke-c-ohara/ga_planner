@@ -1,28 +1,29 @@
 <%= form_for @cohort do |f| %>
-<% if @cohort.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@cohort.errors.count, "error") %> prohibited this cohort from being saved:</h2>
-  <ul>
-    <% @cohort.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-<p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name%>
-</p>
-<p>
-  <%= f.label :start_date %><br>
-<%= f.date_select(:start_date, options = { order: [:day, :month, :year], start_year: 2014, end_year: 2016 }, html_options = { size: 1 }) %>
-<%= f.label :end_date %>
-<p>
-  <%= f.label :course_id %><br>
-  <%= f.collection_select :course_id, Course.all, :id, :name%>
-</p>
-<p>
+  <% if @cohort.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cohort.errors.count, "error") %> prohibited this cohort from being saved:</h2>
+      <ul>
+        <% @cohort.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class= "field">
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </div>
+  <div class= "field">
+    <%= f.label :start_date %>
+    <%= f.date_select(:start_date, options = { order: [:day, :month, :year], start_year: 2014, end_year: 2016 }, html_options = { size: 1 }) %>
+    <%= f.label :end_date %>
+  </div>
+  <div class= "field">
+    <%= f.label :course_id %><br>
+    <%= f.collection_select :course_id, Course.all, :id, :name%>
+  </div>
+  <div class="actions">
   <%= f.submit %>
-</p>
+  </div>
 <% end %>
 
