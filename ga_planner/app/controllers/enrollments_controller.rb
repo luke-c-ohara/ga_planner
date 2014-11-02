@@ -6,6 +6,7 @@ class EnrollmentsController < ApplicationController
 
   def show
     @enrollment = Enrollment.find(params[:id])
+    @cohort = Cohort.find(params[:cohort_id])
   end
 
   def new

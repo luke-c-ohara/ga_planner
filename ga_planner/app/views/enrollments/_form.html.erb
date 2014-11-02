@@ -1,25 +1,25 @@
 <%= form_for [@cohort, @enrollment] do |f| %>
-<% if @enrollment.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@enrollment.errors.count, "error") %> prohibited this user from being saved:</h2>
-  <ul>
-    <% @enrollment.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-<p>
-  <%= f.label :start_date %><br>
-  <%= f.text_field :start_date%>
-</p>
-<p>
-  <%= f.label :pre_work %><br>
-  <%= f.text_area :pre_work%>
-</p>
+  <% if @enrollment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enrollment.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @enrollment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class= "field">
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date%>
+  </div>
+  <div class= "field">
+    <%= f.label :pre_work %><br>
+    <%= f.text_area :pre_work%>
+  </div>
 
-<p>
-  <%= f.submit class: 'button'%>
-</p>
+  <div class="actions">
+    <%= f.submit class: 'button'%>
+  </div>
 <% end %>
 

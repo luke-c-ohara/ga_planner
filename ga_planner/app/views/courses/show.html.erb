@@ -3,14 +3,17 @@
     <div class= "title">
       <%= @course.name %>
     </div>
-    <p>Course duration: <%= @course.duration %> months <p>
-    <p>Current cohorts:<p>
-
-   <p> <% @course.cohorts.each do |cohort| %>
-    <%= link_to cohort.name, cohort %></p>
-    <% end %>
+    <ul>
+      <li>Course duration: <%= @course.duration %> months </li>
+      <li>Current cohorts:</li>
+    </ul>
+    <ul>
+      <% @course.cohorts.each do |cohort| %>
+      <li><%= link_to cohort.name, cohort %></li>
+      <% end %>
+    </ul> 
   </div>
-  </div>
+</div>
 
 
 

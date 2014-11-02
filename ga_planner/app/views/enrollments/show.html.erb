@@ -1,15 +1,14 @@
+<h1> You are now enrolled on <%= @cohort.name %> </h1>
 
-<h1> You are now enrolled on <%= @enrollment.cohort.name %> </h1>
-<p>
-  <%= @enrollment.start_date %><br>
-</p>
-<p>
-  <%= @enrollment.pre_work %><br>
-</p>
-<p>
-</p>
-  <%= @enrollment.cohort.name %>
-</p>
-<p>
-
+<ul>
+  <li>
+    <%= @enrollment.start_date %>
+  </li>
+  <li>
+    <%= @enrollment.pre_work %>
+  </li>
+  <li>
+    <%= @cohort.name %>
+  </li>
+</ul>
 
