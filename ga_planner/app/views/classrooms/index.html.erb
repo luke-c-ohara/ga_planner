@@ -1,4 +1,4 @@
-<h3>Listing Classrooms</h3>
+<h1>Listing Classrooms</h1>
 
 <table>
   <tr>
@@ -6,17 +6,16 @@
     <th>Name</th>
   </tr>
 
-<h3>Classrooms</h3>
-<% @classrooms.each do |room| %>
+  <h2>Classrooms</h2>
+  <% @classrooms.each do |room| %>
   <tr>
     <td><%= room.location %></td>
     <td><%= room.name %></td>
-    <td><%= link_to 'book', new_classroom_booking_path(room) %></td>
+    <td><%= link_to 'Book Room', new_classroom_booking_path(room) %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
 
 <% if can? :manage, User %>
  <%= link_to 'create new classroom', new_classroom_path, class: 'button'  %></td>
- <br>
 <% end %>

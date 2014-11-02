@@ -1,8 +1,14 @@
 GA Planner App 
 ===============
 
-This app was created as project one of my 12 week WDI course with GA London.
+This app was created as project one, after 4 weeks of a 12 week WDI course with GA London.
 
 The MPV was to create an application that would allow users to book themselves onto course, as well as teachers to create now cohorts and book cohorts into classrooms.
+
+This was created with Ruby on Rails, Cancancan, Sqlite.
+
+Due to my relative inexperiance at the point of creating this app, no tests were written. But it is something I would like to come back to, to improve my skills. 
+
+
 
 
